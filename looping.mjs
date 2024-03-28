@@ -1,4 +1,5 @@
 import fs from "node:fs";
+import path from "node:path";
 import { getInfoFromOs } from "./get-info-from-os.mjs";
 
 export function looping() {
@@ -19,7 +20,7 @@ export function looping() {
 },`;
 
     try {
-      fs.appendFileSync("./log.txt", logs, "utf-8");
+      fs.appendFileSync(path.join(".", "logs", "logs.txt"), logs, "utf-8");
     } catch (error) {
       console.error(`Erro ao escrever arquivo: ${error.message}`);
     }
